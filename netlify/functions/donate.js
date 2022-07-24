@@ -1,3 +1,4 @@
+const axios = require("axios").default;
 
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
@@ -5,11 +6,17 @@ const webLink = process.env.APP_URL;
 
 
 exports.handler = async (event) => {
-	console.log("Received an update from Telegram!", event.body, BOT_TOKEN);
+	console.log("Received an update from Telegram!", event.body, webLink);
+        await axios.post(
+			`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+			{
+				chat_id: JSON.parse(event.body).message.chat.id,
+				text: "I got your message, Bitch!",
+			}
+		);
 	return { statusCode: 200 };
 };
 
-// const axios = require("axios").default;
 // const { Telegraf } = require("telegraf");
 
 
@@ -29,13 +36,13 @@ exports.handler = async (event) => {
 // exports.handler = async (event) => {
 // 	console.log("Received an update from Telegram!", BOT_TOKEN, webLink);
 
-//     await axios.post(
-// 		`https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`,
-// 		{
-// 			chat_id: JSON.parse(event.body).message.chat.id,
-// 			text: "I got your message!",
-// 		}
-// 	);
+    // await axios.post(
+	// 	`https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`,
+	// 	{
+	// 		chat_id: JSON.parse(event.body).message.chat.id,
+	// 		text: "I got your message!",
+	// 	}
+	// );
 
 //     return { statusCode: 200 };
 // };
