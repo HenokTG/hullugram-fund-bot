@@ -2,10 +2,10 @@
 
 const { Telegraf } = require("telegraf");
 
-const bot = new Telegraf(BOT_TOKEN);
-
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const webLink = process.env.APP_URL;
+
+const bot = new Telegraf(BOT_TOKEN);
 
 exports.handler = async (event) => {
 	console.log("Received an update from Telegram!", event.body, webLink);
