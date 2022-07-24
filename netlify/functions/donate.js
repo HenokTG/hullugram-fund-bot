@@ -1,14 +1,17 @@
 
+
+const BOT_TOKEN = process.env.BOT_TOKEN;
+const webLink = process.env.APP_URL;
+
+
 exports.handler = async (event) => {
-	console.log("Received an update from Telegram!", event.body);
+	console.log("Received an update from Telegram!", event.body, BOT_TOKEN);
 	return { statusCode: 200 };
 };
 
 // const axios = require("axios").default;
 // const { Telegraf } = require("telegraf");
 
-// const BOT_TOKEN = process.env.BOT_TOKEN;
-// const webLink = process.env.APP_URL;
 
 // const bot = new Telegraf(BOT_TOKEN);
 
