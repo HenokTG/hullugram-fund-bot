@@ -25,7 +25,7 @@ exports.handler = async (event) => {
 			},
 		})
 	);
-	
+	bot.launch();
 	console.log("Received an update from Telegram After Open!", webLink);
-	return bot.launch();;
+	return { statusCode: 200 };
 };
