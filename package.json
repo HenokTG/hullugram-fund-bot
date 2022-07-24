@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/HenokTG/hullugram-fund-bot/issues"
   },
-  "homepage": "https://github.com/HenokTG/hullugram-fund-bot#readme"
+  "homepage": "https://github.com/HenokTG/hullugram-fund-bot#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
 }
