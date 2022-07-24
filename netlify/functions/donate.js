@@ -7,14 +7,22 @@ const webLink = process.env.APP_URL;
 // const bot = new Telegraf(BOT_TOKEN);
 
 exports.handler = async (event) => {
-	console.log("Received an update from Telegram!", webLink);
-	await axios.post(
-		`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+	console.log("Received an update from Telegram!", event.body);
+	
+    await axios.post(
+		`https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`,
 		{
 			chat_id: JSON.parse(event.body).message.chat.id,
-			text: "I got your message!"
+			text: "I got your message!",
 		}
 	);
+	// await axios.post(
+	// 	`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+	// 	{
+	// 		chat_id: JSON.parse(event.body).message.chat.id,
+	// 		text: "I got your message!"
+	// 	}
+	// );
 
 	// bot.start((ctx) =>
 	// 	ctx.reply("Welcome to Hulugram Fund", {
@@ -26,6 +34,7 @@ exports.handler = async (event) => {
 	// 	})
 	// );
 	// bot.launch();
-	console.log("Received an update from Telegram After Open!", webLink);
-	return { statusCode: 200 };
+	// console.log("Received an update from Telegram After Open!", webLink);
+	
+    return { statusCode: 200 };
 };
