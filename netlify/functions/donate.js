@@ -1,7 +1,8 @@
 const axios = require("axios").default;
+const { Telegraf } = require("telegraf");
 
 exports.handler = async (event) => {
-	console.log("Received an update from Telegram!", process.env.BOT_TOKEN);
+	console.log("Received an update from Telegram!", process.env.APP_URL);
     await axios.post(
 		`https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`,
 		{
