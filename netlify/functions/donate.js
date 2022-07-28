@@ -13,7 +13,7 @@ exports.handler = async (event) => {
 	await axios.post(
 		`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
 		{
-			// chat_id: JSON.parse(event.body).message.chat.id,
+			chat_id: 1,
 			text: "I got your message!"
 		}
 	);
