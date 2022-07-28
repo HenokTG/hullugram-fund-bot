@@ -13,13 +13,10 @@ exports.handler = async (event) => {
 	await axios.post(
 		`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
 		{
-			chat_id: JSON.parse(event.body).message.chat.id,
+			// chat_id: JSON.parse(event.body).message.chat.id,
 			text: "I got your message!"
 		}
 	);
-	// bot.start((ctx) => ctx.reply("Welcome to Hulugram Fund"));
-	
-	// bot.launch();
 
 	return { statusCode: 200 };
 };
@@ -29,6 +26,9 @@ exports.handler = async (event) => {
 // 		[{ text: "Hulu Donate", web_app: { url: webLink } }],
 // 	],
 // },
+// bot.start((ctx) => ctx.reply("Welcome to Hulugram Fund"));
+	
+	// bot.launch();
 
 // exports.handler = async (event) => {
 // 	console.log("Received an update from Telegram!", BOT_TOKEN, webLink);
