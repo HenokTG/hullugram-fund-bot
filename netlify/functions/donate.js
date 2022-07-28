@@ -14,7 +14,7 @@ exports.handler = async (event) => {
 		`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
 		{
 			chat_id: JSON.parse(event.body).message.chat.id,
-			text: "I got your message!",
+			text: "I got your message!"
 		}
 	);
 	// bot.start((ctx) => ctx.reply("Welcome to Hulugram Fund"));
