@@ -5,13 +5,13 @@ const axios = require("axios").default;
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const webLink = process.env.APP_URL;
 
-const bot = new Telegraf(BOT_TOKEN);
+// const bot = new Telegraf(BOT_TOKEN);
 
 exports.handler = async (event) => {
 	console.log("Received an update from Telegram!", event.body, webLink);
 
 	await axios.post(
-		`https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`,
+		`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
 		{
 			chat_id: JSON.parse(event.body).message.chat.id,
 			text: "I got your message!",
