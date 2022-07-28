@@ -1,45 +1,19 @@
-const axios = require("axios").default;
+import { Telegraf } from "telegraf";
 
-// const { Telegraf } = require("telegraf");
+require("dotenv").config();
 
-const BOT_TOKEN = process.env.BOT_TOKEN;
+const BOT_TOKEN = process.env.TOKEN;
 const webLink = process.env.APP_URL;
 
-// const bot = new Telegraf(BOT_TOKEN);
+const bot = new Telegraf(BOT_TOKEN);
 
-exports.handler = async (event) => {
-	console.log("Received an update from Telegram!", event.body, webLink);
+bot.start((ctx) => ctx.reply("Welcome"));
+bot.help((ctx) => ctx.reply("Send me a sticker"));
+bot.on("sticker", (ctx) => ctx.reply("👍"));
+bot.hears("hi", (ctx) => ctx.reply("Hey there"));
+bot.launch();
 
-	await axios.post(
-		`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
-		{
-			chat_id: 1,
-			text: "I got your message!"
-		}
-	);
 
-	return { statusCode: 200 };
-};
-
-// reply_markup: {
-// 	inline_keyboard: [
-// 		[{ text: "Hulu Donate", web_app: { url: webLink } }],
-// 	],
-// },
-// bot.start((ctx) => ctx.reply("Welcome to Hulugram Fund"));
-	
-	// bot.launch();
-
-// exports.handler = async (event) => {
-// 	console.log("Received an update from Telegram!", BOT_TOKEN, webLink);
-
-// await axios.post(
-// 	`https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`,
-// 	{
-// 		chat_id: JSON.parse(event.body).message.chat.id,
-// 		text: "I got your message!",
-// 	}
-// );
-
-//     return { statusCode: 200 };
-// };
+// Enable graceful stop
+process.once('SIGINT', () => bot.stop('SIGINT'))
+process.once('SIGTERM', () => bot.stop('SIGTERM'))
