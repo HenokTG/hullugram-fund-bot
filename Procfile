@@ -1,0 +1,1 @@
+worker: node netlify/functions/donate.js

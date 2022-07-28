@@ -2,9 +2,13 @@
   "name": "hullugram-fund-bot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "donate.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "16.x",
+    "npm": "8.3"
   },
   "repository": {
     "type": "git",
